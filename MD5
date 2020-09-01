@@ -1,0 +1,14 @@
+4e49ec9af5b01c61e8bdcc5bbaa08258 *DESCRIPTION
+963265b616cce09ebb876725d6779ff7 *NAMESPACE
+7883f6279d2396025ff73a4463e66a61 *R/DiProPerm.R
+14261fdb38d9f8e2f186b16c96d8e4ea *R/data.R
+f0b1f1b53f70406820c8c7f9e741409b *R/dpp_functions.R
+0c0f222ea064715b193010874c52e893 *R/globals.R
+72e3e99b2898897f17c29c0acdfa146d *R/loadings.R
+328ea6c296e3ddad188558d581ed8a71 *R/plotdpp.R
+ff02488b7d9bf83e1dcdbeeec38e2368 *README.md
+a91897ded318d3930323dd1833cb272f *data/mushrooms.rda
+b705aaa192bef0c127d8f642cfae4b55 *man/DiProPerm.Rd
+e94e0f0d90399920ed7c5f87de1346d2 *man/loadings.Rd
+6daf55f2ba99ef64f762634e53eed756 *man/mushrooms.Rd
+c2183bda377681c1062df94d40edf570 *man/plotdpp.Rd
