@@ -22,11 +22,11 @@ DiProPerm(
 
 \item{B}{The number of permutations for the DiProPerm test. The default is 1000.}
 
-\item{classifier}{A string designating the binary linear classifier. classifier="dwd", distance weighted discrimination, is the default. classifier="dwd" implements a generalized DWD model from the \code{\link[DWDLargeR]{genDWD}} function in the \code{DWDLargeR} package.
-The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. More details on the algorithm used to calculate the DWD solution can be found \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1366915}{here}.
-One other option for the binary classifier is the "md", mean difference direction.}
+\item{classifier}{A string designating the binary linear classifier. classifier="dwd", distance weighted discrimination (DWD), is the default. classifier="dwd" implements a generalized DWD model from the \code{\link[DWDLargeR]{genDWD}} function in the \code{DWDLargeR} package.
+The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. The \code{genDWD} and \code{penaltyParameter} functions have several arguments which are set to recommended default values. More details on the algorithm used to calculate the DWD solution can be found in Lam et al. (2018).
+Other options for the binary classifier include the "md", mean difference direction, and "svm", support vector machine. The "svm" option uses the default implementation from \code{\link[e1071]{svm}}.}
 
-\item{univ.stat}{A string indicating the univariate statistic used for the projection step. univ.stat="md", mean difference, is the default.}
+\item{univ.stat}{A string indicating the univariate statistic used for the projection step. univ.stat="md", the mean difference, is the default.}
 
 \item{balance}{A logical indicator for whether a balanced permutation design should be implemented.  The default is TRUE.}
 
@@ -49,8 +49,9 @@ A list containing:
 }
 \description{
 This package conducts a Direction-Projection-Permutation (DiProPerm) test.
-For more details see Wei et al, 2016 \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2015.1027773}{here}.
-DiProPerm assesses whether a binary linear classifier can detect a difference between two high-dimensional distributions.
+DiProPerm is a two-sample hypothesis test for comparing two high-dimensional
+distributions. The DiProPerm test is exact, i.e., the type I error is guaranteed
+to be controlled at the nominal level for any sample size. For more details see Wei et al. (2016).
 }
 \examples{
 \donttest{data(mushrooms)
@@ -62,15 +63,20 @@ X.temp <- SparseM::as.matrix(mushrooms$X)[,1:50]
 X <- Matrix::t(X.temp)
 y <- mushrooms$y[1:50]
 dpp <- DiProPerm(X=X,y=y,B=100,classifier="md")}
+\dontshow{data(mushrooms)
+X <- Matrix::t(mushrooms$X)
+X <- X[1:50,]
+y <- mushrooms$y[1:50]
+dpp <- DiProPerm(X=X,y=y,B=100,classifier="svm")}
 
 }
 \references{
 {Lam, X. Y., Marron, J. S., Sun, D., & Toh, K.-C. (2018). Fast Algorithms for
  Large-Scale Generalized Distance Weighted Discrimination. Journal of
  Computational and Graphical Statistics, 27(2), 368–379.
- \url{https://doi.org/10.1080/10618600.2017.1366915}}
+ \doi{10.1080/10618600.2017.1366915}}
 
-{Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \url{https://doi.org/10.1080/10618600.2015.1027773}}
+{Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \doi{10.1080/10618600.2015.1027773}}
 }
 \author{
 Andrew G. Allmon, J.S. Marron, Michael G. Hudgens

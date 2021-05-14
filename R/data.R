@@ -8,10 +8,10 @@
 #' edible and poisonous/unknown.
 #'
 #' @format A list (\code{X}) containing a 112x8124 matrix of 8124 mushrooms with 112
-#' features; and an outcome vector (\code{y}) of length 8124 containing the class information (-1 = "edible", 1="poisonous/unknown").
+#' features; and an outcome vector (\code{y}) of length 8124 containing the class information (-1 = "edible", 1 = "poisonous/unknown").
 #' The 112 features are
 #' 0/1 dummy variables for 22 different categorical attributes. All 22 attributes and their
-#' categories are clearly displayed at the source link below.
+#' categories are displayed at the source link below.
 #'
 #' @source This data can be found at the UCI Machine Learning Data Repository
 #' website. \url{https://archive.ics.uci.edu/ml/datasets/Mushroom}

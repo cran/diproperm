@@ -2,12 +2,16 @@
 #'
 #' @name loadings
 #'
-#' @description Returns the variable indexes who had the highest loadings in the binary classification.  Higher loading values indicate a variable's contribution toward the separation between the two classes.
+#' @description Returns the variable indexes who had the highest loadings in the
+#' binary classification. Higher loading values indicate a variable's contribution
+#' toward the separation between the two classes. The loadings vector is a unit vector; thus the individual loadings range from -1 to 1, and the sum of the squares of the
+#' loadings equals one. The loadings direction vector points from the negative to positive class.
+#' Thus, positive entries correspond to variables that tend to be larger for the positive class.
 #'
 #' @param dpp A DiProPerm list.
 #' @param loadnum An integer indicating the number of variables to display.  For example, if loadnum=5 then the indexes for the five variables who contributed most toward the separation of the two classes are displayed. The default is to print out all the loadings.
 #'
-#' @return Returns the indexes and loadings for variables which contributed the most toward the separation of the the binary classifier.
+#' @return Returns the indexes and loadings for variables which contributed the most toward the separation of the binary classifier.
 #'
 #' @export
 #'
